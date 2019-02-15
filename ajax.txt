@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+ <script  type="text/javascript">
+function getXMLHTTP() {
+  var XMLHTTP = null;
+  if (window.ActiveXObject) {
+    try {
+      XMLHTTP = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+      try {
+        XMLHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e) {
+      }
+    }
+  } else if (window.XMLHttpRequest) {
+    try {
+      XMLHTTP = new XMLHttpRequest();
+    } catch (e) {
+    }
+  }
+  return XMLHTTP;
+}
+document.write('Todays Date and Time : ');
+document.write(new Date());
+var XMLHTTP = getXMLHTTP();
+function Click(){
+
+
+if (XMLHTTP != null) {
+  XMLHTTP.open("GET", "ajax.jsp?name=OK");
+  XMLHTTP.onreadystatechange = stateChanged;
+ //ready to send the request
+ 
+  XMLHTTP.send(null);
+}
+}
+function stateChanged() {
+  if (XMLHTTP.readyState == 4 && 
+      XMLHTTP.status == 200) {
+    alert(XMLHTTP.responseText);
+  }
+}
+  </script>
+  </head>
+<body>
+<br><br>
+<input type="button" value="Go" onclick="Click()"/>
+just wait and see</body>
+
+</html>
+
+
+
+________________________________________
+From: T, Senthil (Cognizant)
+Sent: Monday, January 28, 2019 1:55 PM
+To: Choudhury, Anneysha (Contractor); Kumar, Anand (Contractor); Sahu, Rahul Kumar (Contractor); Som, Dipayan (Contractor); Sil, Diptendu (Contractor); Pradhan, Shouvik (Contractor); Banerjee, Oshin (Contractor); Dey, Arindam (Contractor); Mukhopadhyay, Shaurya (Contractor); Jaiswal, Diksha (Contractor); Saha, Satirtha (Contractor); Azam, Sohrab (Contractor); Shaw, Vikash Kumar (Contractor); Sharma, Keshav Deo (Contractor); Pradhan, Shouvik (Contractor); Aafreen, Shaista (Contractor); Roy, Devmalya (Contractor); Dasgupta, Arya (Contractor); Choudhury, Srinjoy (Contractor); Dutta, Rohan (Contractor); Pal, Arijit (Contractor); Karati, Arnab (Contractor); Biswas, Anoy (Contractor); Mallick, Aakash (Contractor); Das, Pragya (Contractor); Chatterjee, Spandan (Contractor); Shaw, Oeindrila (Contractor); Laha, Arunima (Contractor); Ghosh, Sayantan (Contractor); Chandra, Piyush (Contractor); Bhalotia, Akshat (Contractor); Agarwal, Shradha (Contractor); Saha, Rahul (Contractor); Baid, Jatan Lal (Contractor); Verma, Aman (Contractor); Halder, Soudip (Contractor); Bhakat, Sunandan (Contractor); Das, Arnab (Contractor); Dey, Souvik (Contractor); Bhattacharjee, Shubham (Contractor); Azhar, MD (Contractor)
+Subject: Reg: Ajax 
+ 
+<% out.println("My first Ajax I am coming from server "+request.getParameter("name"));
+ 
+ 
+ 
+ 
+<script>
+function getXMLHTTP(){
+  var XMLHTTP= null;
+  if(window.ActiveXObject){
+    try{
+        XMLHTTP=new ActiveXObject("Msxml2.XMLHTTP");
+     } catch(e){
+        try{
+         XMLHTTP=new ActiveXObject("Microsoft.XMLHTTP");
+        } catch(e){
+        }
+      }
+   } else if(window.XMLHttpRequest){
+         try{
+           XMLHTTP = new XMLHttpRequest();
+        } catch(e) {
+       }
+     }
+        return XMLHTTP;
+}
+document.write("Today's date and time:");
+document.write(new Date());
+var XMLHTTP=getXMLHTTP();
+ 
+function click(){
+if(XMLHTTP!=null){
+      XMLHTTP.open("GET","ajax.jsp?name=Sam");
+      XMLHTTP.onreadystatechange=stateChanged;
+      XMLHTTP.send(null);
+  }
+}
+ 
+function stateChanged(){
+if(XMLHTTP.readyState==4 && XMLHTTP.status==200){
+      alert(XMLHTTP.responseText);
+}
+}
+</script>
+ 
+<body>
+<br><br>
+<input type="button" value="Go" onclick="click()"/>
+Just wait and see
+</body>
+ 
+ 
+ 
+Cd_catalog.xml
+ 
+<CATALOG> 
+   <CD> 
+       <TITLE>Empire Burlesque</TITLE> 
+       <ARTIST>Bob Dylan</ARTIST> 
+       <COUNTRY>USA</COUNTRY> 
+       <COMPANY>Columbia</COMPANY> 
+       <PRICE>10.90</PRICE> 
+       <YEAR>1985</YEAR> </CD> 
+   <CD> 
+       <TITLE>Hide your heart</TITLE> 
+       <ARTIST>Bonnie Tyler</ARTIST> 
+       <COUNTRY>UK</COUNTRY> 
+       <COMPANY>CBS Records</COMPANY> 
+       <PRICE>9.90</PRICE> 
+       <YEAR>1988</YEAR> </CD> 
+   <CD> 
+       <TITLE>Greatest Hits</TITLE> 
+       <ARTIST>Dolly Parton</ARTIST> 
+       <COUNTRY>USA</COUNTRY> 
+       <COMPANY>RCA</COMPANY> 
+       <PRICE>9.90</PRICE> 
+       <YEAR>1982</YEAR> </CD> 
+   <CD> 
+       <TITLE>Still got the blues</TITLE> 
+       <ARTIST>Gary Moore</ARTIST> 
+       <COUNTRY>UK</COUNTRY> 
+       <COMPANY>Virgin records</COMPANY> 
+       <PRICE>10.20</PRICE> 
+       <YEAR>1990</YEAR> </CD>
+</CATALOG>
+ 
+ 
+<!DOCTYPE html>
+<html>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+<body>
+ 
+<h2>The XMLHttpRequest Object</h2>
+ 
+<button type="button" onclick="loadDoc()">Get my CD collection</button>
+<br><br>
+<table id="demo"></table>
+ 
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xhttp.open("GET", "cd_catalog.xml", true);
+  xhttp.send();
+}
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>Artist</th><th>Title</th></tr>";
+  var x = xmlDoc.getElementsByTagName("CD");
+  for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
+ 
+</body>
+</html> 

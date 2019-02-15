@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+                <head>
+
+
+                                <meta charset="ISO-8859-1">                                                                                    //latin script or english char(ISO-8859-1)
+                                <meta name="keywords" content="html,meta tags"/>                                                   //key words to be used to open the web page during search eg gmail.com,gmail,etc..
+                                <meta name="description" content="HTML page"/>                                                       //
+                                <meta name="revised" content="10/12/2016"/>                                                               //revised date of the page
+                                <meta name="author" content="xyz"/>                                                                //creator of the page
+                                <meta http-equiv="refresh" content="5; url="https://abc.com"/>                                             //the webpage will automatically refreshed wfter the given time
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">                           //webpage must fit into the size of the device so we are using the bootstrap so to include the bootstap this line is used
+
+
+                                <base href="http://abc.com"/>                                                                                 //base domain of the webpage
+
+
+                                <title>HTML Example</title>                                                                                                      //title for the webpage
+
+
+                                <style>
+                                                header {
+                                                                background-color:black;
+                                                                color:white;
+                                                                text-align:center;
+                                                                padding:5px;
+                                                }
+                                                nav {
+                                                                line-height:30px;
+                                                                background-color:#eeeeee;
+                                                                 height:300px;
+                                                                width:100px;
+                                                                float:left;
+                                                                padding:5px;
+                                                }
+                                section {
+                                                width:350px;
+                                                 float:left;
+                                                padding:10px;
+                                }
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;
+}
+</style>
+<script></script>
+<link></link>
+<base></base>
+</head>
+
+
+
+                <body >
+                                <!-- Heading Tags -->
+                                <h1>Hello World</h1>
+                                <h2>Hello World</h2>
+                                <h3>Hello World</h3>
+                                <h4>Hello World</h4>
+                                <h5>Hello World</h5>
+                                <h6>Hello World</h6>
+
+                               <!-- Break tag -->
+                                <br/>
+                                <br/>                                    //unconditional tag  -----break,empty tag
+
+                                <!-- Horizontal Rule -->
+                                <hr size=10 width=30% align=right />                      //empty tag,3 attribute
+
+                                <!-- Paragraph tag -->
+                                <p>This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.
+                                This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.
+                                This is a paragraph.This is a paragraph.This is a paragraph.
+                                This is a paragraph.This is a paragraph.&copy;</p>
+                                <p>This is a paragraph.</p>
+
+                                <!-- Formatting tags -->
+                                                <b>Hello World</b><br/>
+                                                <i>Hello World</i><br/>
+                                                <em>Hello World</em><br/>                    //emphasis
+                                                <big>Hello World</big><br/>
+                                                <strong>Hello World</strong><br/>
+                                                <small>Hello World</small><br/>
+                                                <ins>Hello World</ins><br/>                     //underline
+                                                <del>Hello World</del><br/>                    //strike througth
+
+                                <b>Formula:a<sup>2</sup>+b<sup>2</sup></b><br/>                 //sup-superscript 
+
+                                <b>Chemical Formula:CH<sub>2</sub></b><br/>                                            //sub-substript tag
+
+                                <bdo dir="rtl">Hello World</bdo><br/>                                                //block orientation   dir=rtl reight to left is printed if not given left to wright
+
+                                The <abbr title="World Health Organization">WHO</abbr> was founded in 1948<br/><br/><br/>                                //when the cursor is placed over it then abbr is displayed
+
+                                <address>
+                                                Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>                                           //
+                                                Visit us at:<br>
+                                                Example.com<br>
+                                                Box 564, Disneyland<br>
+                                                USA
+                                </address>
+<br/><br/><br/>
+
+                                <blockquote cite="http://www.worldwildlife.org/who/index.html">
+                                                For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+                                </blockquote>                                  //paragraphs are intended to come through left
+<br/>
+
+                                <q>Build a future where people live in harmony with nature.</q>                             //dougle quote
+                                &quot;We hope they succeed.</p>                                                                         (ENTITIES)//&quot;==>                  //&nbsb;==>space between line r words                //&gt;==>'>'       //$lt==>'<'                          //&times
+<br/>
+
+
+                                <p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p><br/>                          //citation tag a diff font for the name given to a painting r photo
+
+                                <code>A piece of computer code</code><br/>                                                                 //display a code part 
+
+                               <p><dfn>HTML</dfn> is the standard markup language for creating web pages.</p>       //defention tag 
+
+                                <var>int x=0;</var><br/>                                                                                                             //defin9ing a variable
+
+
+
+                                <p>
+                <i>Taumata<wbr>whakatangihanga<wbr>koauau<wbr>o<wbr>tamatea<wbr>turi<wbr>pukakapiki<wbr>maunga<wbr>horo<wbr>nuku<wbr>pokai<wbr>whenua<wbr>kitanatahu</i><i>Taumata<wbr>whakatangihanga<wbr>koauau<wbr>o<wbr>tamatea<wbr>turi<wbr>pukakapiki<wbr>maunga<wbr>horo<wbr>nuku<wbr>pokai<wbr>whenua<wbr>kitanatahu</i></p>
+
+                <i>Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu</i><i>Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu</i></p>
+                                <br/><br/>                                         // where the words ij my paragraph need to b break 
+  
+                                <pre>
+                                                Text in a pre element
+                                                is displayed in a fixed-width
+                                                font, and it preserves
+                                                both      spaces and
+                                                line breaks
+                                </pre>                  //pre defined tag hoe we are tyopingh its printed in the same format
+<br/><br/>
+
+                                <p>Do not forget to buy <mark>milk</mark> today.</p>                              //mark anything in different color by default it is mark in yello color
+<br/><br/>
+
+
+                                <figure>
+                                                <img src="download.png" alt="The Pulpit Rock" width="304" height="228">
+                                <figcaption>Fig1. - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                                                                                                                                                //figure property can be given so that the image can be displayed accordingly
+<br/><br/>
+
+
+
+                                <!-- HTML Links -->
+                                <p>
+                                                This is a link to <a href="http://www.wfp.org/" 
+                                                style="text-decoration:none">World Food Programme</a>.        //text-decoration:none==>create link without underline
+                                </p>
+<br/><br/>
+
+                                <a href="http://www.google.com" target="_blank/_self/_top/framename">Visit Google.com!</a>                 //target==> decides where the page is loaded ie new page same page 
+<br/><br/>
+
+                                <p>
+                                                This is another mailto link:
+                                                <a href="mailto:abc@example.com?cc=xyz@example.com
+                                                &bcc=pqr@example.com
+                                                &subject=Hello&body=You%20are%20invited%20to%20a%20big%20summer%20party!"
+                                                target="_top">Send mail!</a>
+                                </p>
+<br/><br/>
+
+                                <a href="javascript:alert('Hello World!');">Execute JavaScript</a>
+<br/><br/>
+
+
+                                <!-- HTML Images -->
+
+                                <img src="D:\java\Web Concepts\html\Tulips.jpg" alt="Flower" style="width:304px;height:228px;"><br/><br/>
+
+                                <img src="D:\java\Web Concepts\html\Tulips.jpg" alt="Icon" width="128" height="128"><br/><br/>
+
+                                <img src="D:\java\Web Concepts\html\Tulips.jpg" alt="Flowers" usemap="#flowermap" style="width:145px;height:126px;">
+
+                                                <map name="flowermap">
+                                                <area shape="rect" coords="0,0,82,126" alt="Petal1"  href="petal1.htm">  //(0,0),width=82,height=126
+                                                <area shape="circle" coords="90,58,3" alt="Petal2"  href="petal2.htm"> //center(90,58),rad
+                                                <area shape="circle" coords="124,58,8" alt="Petal3"  href="petal3.htm">
+                                </map>
+<br/><br/>
+
+                                <!-- HTML Lists -->
+
+                                                <ul type="circle"> 
+                                                <!-- type="circle/disc/square/none" -->
+                                                                <li>Apple</li>
+                                                                <li>Orange</li>
+                                                                <li>Grapes</li>
+                                                </ul>                                                                     //unordered llist displayed by means of bullets
+<br/><br/>
+
+                                                <ol type="1">                    
+                                                                <!-- type="1/A/a/I/i" -->
+                                                                <li>Apple</li>
+                                                                <li>Orange</li>
+                                                                <li>Grapes</li>                                 //ordered list ==>1/A/a/I/i  (start=50 reverse(only for type ='1'))
+                                                </ol>
+<br/><br/>
+
+                                                <dl>
+                                                                <dt>Coffee</dt>
+                                                                <dd>- black hot drink</dd>
+                                                                <dt>Milk</dt>
+                                                                <dd>- white cold drink</dd>
+                                                </dl>                                                                     //def eg:Coffee
+                                                                                                                                                                - black hot drink
+                                                                                                                                                Milk
+                                                                                                                                                                - white cold drink
+
+<br/><br/>
+
+
+                                                <!-- HTML Tables -->
+
+                                                                <table style="width:100%">
+                                                                                <tr>
+                                                                                                <td>Jill</td>
+                                                                                                <td>Smith</td> 
+                                                                                                 <td>50</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                                <td>Eve</td>
+                                                                                                <td>Jackson</td> 
+                                                                                                <td>94</td>
+                                                                                </tr>
+                                                                </table>
+<br/><br/>
+
+                                                                <table border="1" style="width:100%" cellspacing="10">
+                                                                                <caption>Personal Details</caption>
+                                                                                <tr>
+                                                                                                <td>Jill</td>
+                                                                                                <td>Smith</td> 
+                                                                                                <td>50</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                                <td>Eve</td>
+                                                                                                <td>Jackson</td> 
+                                                                                                <td>94</td>
+                                                                                </tr>
+                                                                </table>
+<br/><br/>
+
+                                                                <table border="1" style="width:100%">
+                                                                                <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th colspan="2">Telephone</th>
+                                                                                </tr>                                                     //merge two colomns==>colspan
+                                                                                <tr>
+                                                                                                <td>Bill Gates</td>
+                                                                                                <td>555 77 854</td>
+                                                                                                <td>555 77 855</td>
+                                                                                </tr>
+                                                                </table>
+<br/><br/>
+
+                                                                <table border="1" style="width:100%">
+                                                                                <tr>
+                                                                                                <th>Name:</th>
+                                                                                                <td>Bill Gates</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                                <th rowspan="2">Telephone:</th>         //rows span for merging two rows
+                                                                                                <td>555 77 854</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                                <td>555 77 855</td>
+                                                                                </tr>
+                                                                </table>
+<br/><br/>
+
+                                                                <table>
+                                                                                <colgroup>
+                                                                                                <col span="2" style="background-color:red">
+                                                                                                <col style="background-color:yellow">
+                                                                                </colgroup>
+                                                                                <tr>                       //changing the color of same table with the two color ie 2 colum with same color and other two column with different color
+                                                                                <th>ISBN</th>
+                                                                                <th>Title</th>
+                                                                                <th>Price</th>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                                <td>3476896</td>
+                                                                                                 <td>My first HTML</td>
+                                                                                                 <td>$53</td>
+                                                                                </tr>
+                                                </table>
+<br/><br/>
+
+
+                                                <table>
+                                                               <thead>
+                                                                                <tr>
+                                                                                               <th>Month</th>
+                                                                                               <th>Savings</th>
+                                                                                </tr>
+</thead>
+<tfoot>
+  <tr>
+     <td>Sum</td>
+     <td>$180</td>
+  </tr>
+</tfoot>
+<tbody>
+  <tr>
+     <td>January</td>
+     <td>$100</td>
+  </tr>
+  <tr>
+     <td>February</td>
+     <td>$80</td>
+  </tr>
+</tbody>
+</table>
+<br/><br/>
+
+
+<table frame="vsides">
+  <tr>
+    <td>One</td>
+    <td>two</td> 
+  </tr>
+</table>
+<br/><br/>
+
+<table frame="hsides">
+  <tr>
+    <td>One</td>
+    <td>two</td> 
+  </tr>
+</table>
+<br/><br/>
+
+<table frame="lhs">
+  <tr>
+    <td>One</td>
+    <td>two</td> 
+  </tr>
+</table>
+<br/><br/>
+
+<table frame="rhs">
+  <tr>
+    <td>One</td>
+    <td>two</td> 
+  </tr>
+</table>
+<br/><br/>
+
+<table frame="border">
+  <tr>
+    <td>One</td>
+    <td>two</td> 
+  </tr>
+</table>
+<br/><br/>
+
+<table frame="above">
+  <tr>
+    <td>One</td>
+    <td>two</td> 
+  </tr>
+</table>
+<br/><br/>
+
+<table frame="below">
+  <tr>
+    <td>One</td>
+    <td>two</td> 
+  </tr>
+</table>
+<br/><br/>
+
+<table frame="box">
+  <tr>
+    <td>One</td>
+    <td>two</td> 
+  </tr>
+</table>
+<br/><br/>
+
+<table frame="void">
+  <tr>
+    <td>One</td>
+    <td>two</td> 
+  </tr>
+</table>
+<br/><br/>                                                                                         // frame=frame="void">,frame="box">,below,above,border,lsides,vsides,lhs,rhs
+
+NON_SEMANTIC ELEMENTS:
+***********************
+                                                div
+                                                span
+
+                                                <!-- HTML Blocks -->
+                                                                <div style="background-color:black; color:white; padding:20px;">
+
+                                                                                <h2>London</h2>
+                                                                                <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+
+                                                                </div>
+<br/><br/>
+
+<h1>My <span style="color:red">Important</span> Heading</h1>
+<br/><br/>
+
+
+                                <!-- HTML IFrames -->                    //inline frame linking a webpage by other page(one page into another page)
+
+                                                <iframe src="demo_iframe.htm" width="200" height="200"></iframe><br/><br/>
+
+                                                <iframe src="demo_iframe.htm" style="border:none"></iframe>
+
+HTML 5 SEMANTIC ELEMENTS:
+*************************
+                                <!-- HTML Layouts -->
+
+                                <header>                                                            //defines header for a document ==>header
+                                                <h1>City Gallery</h1>
+                                </header>
+                
+
+                                <nav>                                                   //creates the navigation links 
+                                                <a href="london.html">London</a><br>
+                                                Paris<br>
+                                                Tokyo
+                                </nav>
+
+
+                                <article>                                                              //defies an independent self-contatined article
+                                                <h1>Google Chrome</h1>
+                                                <p>Google Chrome is a free, open-source web browser developed by Google, released in 2008.</p>
+                                </article>
+
+                                <p>My family and I visited The Epcot center this summer.</p>
+
+                                
+                                <aside>                                                //content asided the article like sidebar
+                                                <h4>Epcot Center</h4>
+                                                <p>The Epcot Center is a theme park in Disney World, Florida.</p>
+                                </aside>
+
+
+                                <section>                                                            //section talks abut the important contant of the document
+                                                <h1>London</h1>
+                                                <p>London is the capital city of England. It is the most populous city in the United Kingdom,
+                                                with a metropolitan area of over 13 million inhabitants.</p>
+                                                <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+                                </section>
+
+                                <details>                                                             //defines additional details
+                                                <summary>Copyright 1999-2014.</summary>                                    //defines the heading for detailed elemnts and its is placed only insede details
+                                                <p> - by Refsnes Data. All Rights Reserved.</p>
+                                                <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+                                </details>
+
+                                <footer>                                              //defines footer 
+                                                Copyright © Gallery
+                                </footer>
+
+                                <!-- HTML Video -->
+
+                                <video width="320" height="240" controls autoplay loop muted poster="download.jpg" preload="auto">   //preload:auto or autoplay==> whenever the page is loaded the video played automatically
+                                <!-- preload=auto/metadata/none -->
+                                                <source src="test.mp4" type="video/mp4">                                                                                             //actual playing of video
+                                </video>
+<br/><br/><br/>
+
+                                <audio controls autoplay loop muted poster="download.jpg" preload="auto">
+                                <source src="horse.ogg" type="audio/ogg">
+                                <source src="horse.mp3" type="audio/mpeg">
+                                </audio>
+<br/><br/>
+*****************************************************************************************************
+
+
+<form name="form1" method="get/post"                                                                            //if not method tyoe is given then itll b get method by default
+accept-charset="ISO-8859-1" enctype="multipart/form-data" 
+autocomplete="on" action="url" target="_self" novalidate>                         //autocomplete:stored character given previously is stored and then we can retrive it by givening some part of the data
+                                                                                                                                                //action: what is to be done(mandatory)
+                                                                                                                                                //target: where the new page is gonna open
+                                                                                                                                                //novalidate:html should not do the validation only developer need to do the validation(mandatory)
+                                                                                                                                                //readonly:we can take the value from the text box eg userid(banking system)
+                                                                                                                                                //disabled:we cant take the value from the text box eg:DOB(banking system)
+                                                                                                                                                enctype="multipart/form-data:this is given to add more than a file in attachment which is explained later beloew
+
+
+Name:<input type="text" name="n1" value="" size="10"                                               //name(mandatory) , value==> to display a value which is default
+maxlength="20" autocomplete="on"  autofocus  required                                             //autocomplete:only for this textbox
+pattern="[a-z]" placeholder="Enter name"><br/>                                                            //autofocus :cursor pointer is automatically go to the  text box at the time of loading
+                                                                                                                                                //pattern="[a-z]"==>hold only one char from ato b,[a-z]*==>0 or more ocarance of the word ,[a-z A-Z]+
+                                                                                                                                                //placeholder:used to giva  a hint to the end user
+
+
+
+Password:<input type="password" name="n2" value=""                                 //type,name(mandatory)
+size="10" maxlength="20" autocomplete="on"  autofocus                                             //required :compulsary
+required readonly><br/>
+
+                
+Id:<input type="hidden" name="n3" value="sam"><br/>                                //type,name,value(manatory)
+
+
+<input type="radio" name="gender" value="male" checked> Male<br>  //by default last one is checked since all the elments are given as checked
+  <input type="radio" name="gender" value="female" checked> Female<br>
+  <input type="radio" name="gender" value="other" checked> Other
+
+
+<br/><br/>
+
+<input type="checkbox" name="vehicle1" value="Bike"                                 //both the things are checked since checkbox is to select multiple options
+checked> I have a bike<br>
+  <input type="checkbox" name="vehicle2" value="Car"
+checked> I have a car 
+<br/><br/>
+
+
+<select name="cars">                                                                                                    //single selection
+  <option value="volvo" selected>Volvo</option>                                                             //by default audi is selected coz both volvo and audi is given as "SELETED"
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi" selected>Audi</option>
+</select>
+
+<select multiple>
+  <option value="volvo">Volvo</option>                                                                               //multiple values are selected at that time the valuse are passed as an array
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>
+<br/><br/>
+
+
+<select>
+  <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo</option>                                                             //u cant select the lables u only can select the values below the lables
+    <option value="saab">Saab</option>
+  </optgroup>
+  <optgroup label="German Cars">
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </optgroup>
+</select>
+<br/><br/>
+
+
+<textarea name="message" rows="10" cols="30">                                                            //to get a huge text area 10 rows n 30 cols then it automatically creates a scroll bar
+The cat was playing in the garden.                                                                            //only 30 col and 10 rows are visble then the scroll bar is created
+</textarea>
+<br/><br/>
+
+
+<label for="male">Male</label>                                                                                               
+  <input type="radio" name="gender" id="male" value="male"><br>                        //first create the lable then the button is created
+<label for="female">Female</label>
+  <input type="radio" name="gender" id="female" value="female"><br>
+<label for="other">Other</label>
+  <input type="radio" name="gender" id="other" value="other"><br><br>
+
+
+
+<fieldset>
+    <legend>Personalia:</legend>                                                                              //to graoup the content  
+    Name: <input type="text"><br>                                                                            //legend: title
+    Email: <input type="text"><br>                                                                            
+    Date of birth: <input type="text">
+  </fieldset>
+<br/><br/>
+
+
+<input list="browsers">
+
+Browsers:<datalist id="browsers">
+  <option value="Internet Explorer">                                                                       //list of data is stores as alist so that it can be refered later
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+<br/><br/>
+
+
+
+Quantity (between 1 and 5):
+  <input type="number" name="quantity" min="1" max="5">                                      //value: by default the value will be 30 and step is the countbto b incremented r decremented when u click the arrow
+<br/><br/>
+
+Quantity:
+  <input type="number" name="points" min="0" max="100" step="10" value="30">
+<br/><br/>
+
+Birthday:
+  <input type="date" name="bday">                                                                        //date attr load all the calander info
+<br/><br/>
+
+Enter a date before 1980-01-01:
+  <input type="date" name="bday" max="1979-12-31"><br>
+  Enter a date after 2000-01-01:
+  <input type="date" name="bday" min="2000-01-02"><br>
+<br/><br/>
+
+Select your favorite color:
+  <input type="color" name="favcolor">                                                                //an input palate is created and can any color b selected
+<br/><br/>
+
+<input type="range" name="points" min="0" max="10">                                              //slider is created for expanding the size based on the given max and min value
+<br/><br/>
+
+Birthday (month and year):
+  <input type="month" name="bdaymonth">                                                                      //it will display the month and the year
+<br/><br/>
+
+Select a week:
+  <input type="week" name="week_year">                                                                          //displays week and year
+<br/><br/>
+
+Select a time:                                                                                                                     //hrs:min am/pm
+  <input type="time" name="usr_time">
+<br/><br/>
+
+Birthday (date and time):
+  <input type="datetime-local" name="bdaytime">                                                           //selects both time(hrs:min am/pm) and date
+<br/><br/>
+
+E-mail:
+  <input type="email" name="email">                                                                    //html itself do the validation
+<br/><br/>
+
+Telephone:
+  <input type="tel" name="usrtel">                                                                          //contains only number and max 10 char
+<br/><br/>
+
+Add your homepage:
+  <input type="url" name="homepage">
+
+
+
+<input type="submit"/></br>                                                                                     //submit value from client to server (it is ppossible only br submit botton)submit from a page to another page
+
+<input type="image" src="D:\java\Web Concepts\html\download.png"/></br/>//u want to submit but it not by means of button by means of image
+
+<input type="reset" value="cancel"/></br>                                                         //clear all the info entered  or refresh the data
+
+<input type="button" value="Click" onClick="show()"/></br>                      //invokes the javascript
+<br/>
+
+E-mail: <input type="email" name="email" autocomplete="off">                              
+<br/><br/>
+
+First name:<input type="text" name="fname" autofocus>                                             
+<br/><br/>
+
+<form name="form1" action="sample.jsp">
+<input type="submit" value="Submit"><br>                                                        //in lower version only one submit button
+  <input type="submit" formaction="demo_admin.asp"                                  //formaction:when we prefer some other action then the prev one
+  value="Submit as admin">
+<input type="submit" formmethod="post" formaction="demo_post.asp"              
+  value="Submit using POST">
+
+
+Select images: <input type="file" name="img" multiple>                                //multiple:multi files can be added
+<br/><br/>
+
+Country code: <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">                                
+<br/><br/>
+
+Firstaname<input type="text" name="fname" placeholder="First name">              //placeholder:highligthting
+<br/><br/>
+
+Username: <input type="text" name="usrname" required>
+<br/><br/>
+
+</form>
+
+<br/><br/>
+**************************************************************************************
+
+<meter value=0.5 min=0 max=4 low=1 high=3>0.5 of 4</meter><br/>
+<meter value=1.5 min=0 max=4 low=1 high=3>1.5 of 4</meter><br/>
+<meter value=2.5 min=0 max=4 low=1 high=3>2.5 of 4</meter><br/>
+<meter value=3 min=0 max=4 low=1 high=3>3  of 4</meter><br/>
+<meter value=4 min=0 max=4 low=1 high=3>4 of 4</meter><br/>
+Grade: <meter value=55 min=0 max=100 
+           low=73 high=87 optimum=100>D-</meter>
+
+<br/><br/>
+
+<progress max=10 value=0>0%</progress><br/>
+<progress max=100 value=25>25%</progress><br/>
+<progress max=8 value=4>50%</progress><br/>
+<progress max=100 value=75>75%</progress><br/>
+<progress max=25 value=25>100%</progress><br/>
+<progress>Unknown</progress><br/>
+<br/>
+
+</body>
+</html>

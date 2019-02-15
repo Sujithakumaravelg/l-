@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			/** Just for Alignment */
+				.section{width:200px;padding:1em;margin:1em;border:1px solid black;float:left}
+				.section.tables{width:auto!important}
+			/** Just for Alignment */
+				
+			/** Styling Links Starts*/
+				.section.links a:link {color:red;float:left;clear:both}
+				.section.links a:visited {color:blue;}
+				.section.links a:hover {background-color:black;color:white;}
+				.section.links a:active {color:pink;}
+			/** Styling Links Ends*/
+			
+			/** Decorating Links Starts*/
+				.section.links a.no:link {color:red;text-decoration:none;}
+	        	.section.links a.underline:link {color:red;text-decoration:underline;}
+	        	.section.links a.overline:link {color:red;text-decoration:overline;}
+	        	.section.links a.linethrough:link {color:red;text-decoration:line-through;}
+				.section.links a:visited {color:blue;}
+				.section.links a:hover {background-color:black;color:white;}
+				.section.links a:active {color:pink; }
+			/** Decorating Links Ends*/
+				ul.square{list-style-type: square;list-style-position: inside;}
+				li{border:1px solid black;}
+				ul.image{list-style: url('img/bankIcon.png') outside }
+			/** Styling Links Starts*/	
+				
+			/** Styling Tables Starts*/
+				.section.tables table,td,th,caption{border:1px solid black}
+	        	.section.tables table{table-layout: auto;}
+	        	.section.tables caption{caption-side: top}
+	        	
+	        	.section.tables STACK{ display: inline-table }
+				.section.tables ROW{ display: table-row }
+				.section.tables D{ display: inline; font-weight: bolder }
+        	/** Styling Tables Starts*/
+        	
+        	
+		</style>
+	</head>
+	<body>
+		<!-- Example for Styling Links Starts -->
+		<div class="section links">
+			<h3>CSS Links</h3>
+			<a class="btn" href="#">Click Me</a>
+			<a class="btn no" href="#">Click Me-No Line</a>
+      		<a class="btn underline" href="#">Click Me-Underline</a>
+      		<a class="btn overline" href="#">Click Me- Over Line</a>
+      		<a class="btn linethrough" href="#">Click Me- Line Through</a>
+		</div>
+		<!-- Example for Styling Links Ends -->
+		
+		<!-- Example for Styling Lists Starts -->
+		<div class="section lists">
+			<h3>CSS Lists</h3>
+			<ul class="square">
+	    		<li>Item 1</li>
+	    		<li>Item 2</li>
+	    		<li>Item 3</li>
+	    		<li>Item 4</li>
+    		</ul>
+    		
+    		<ul class="image">
+	    		<li>Item 1</li>
+	    		<li>Item 2</li>
+	    		<li>Item 3</li>
+	    		<li>Item 4</li>
+    		</ul>
+		</div>
+		<!-- Example for Styling Lists Ends -->
+		
+		<!-- Example for Styling Links Starts -->
+		<div class="section tables">
+			<h3>Tables</h3>
+			<table>
+				<caption>This is a simple 3x3 table</caption>
+				<thead>
+					<tr><th>Col 1</th><th>Col 2</th><th>Col 3</th></tr>
+				</thead>
+				<tfoot>
+					<tr><td colspan="3">This is the foot of the table</td></tr>
+				</tfoot>
+				<tbody>
+					<tr><td>Row 1 Cell 1</td><td>Row 1 Cell 2 Row 1 Cell 2 Row 1 Cell 2 Row 1 Cell 2</td><td>Row 1 Cell 3</td></tr>
+					<tr><td>Row 2 Cell 1</td><td>Row 2 Cell 2</td><td>Row 2 Cell 3</td></tr>
+					<tr><td colspan="2">Row 3 Cell 1</td><td>Row 3 Cell 2</td></tr>
+					<tr><td rowspan="2">Row 4 Cell 1</td><td>Row 4 Cell 2</td><td>Row 4 Cell 3</td></tr>
+					<tr><td>Row 5 Cell 2</td><td>Row 5 Cell 3</td></tr>
+				</tbody>
+			</table>
+			
+			<STACK>
+			  <ROW>This is the <D>top</D> row.</ROW>
+			  <ROW>This is the <D>middle</D> row.</ROW>
+			  <ROW>This is the <D>bottom</D> row.</ROW>
+			</STACK>
+			 
+		</div>
+		<!-- Example for Styling Links Ends -->
+	</body>
+</html>
+

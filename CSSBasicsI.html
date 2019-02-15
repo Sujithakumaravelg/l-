@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+				/** Just for Alignment */
+				.section{width:200px;padding:1em;margin:1em;border:1px solid black;float:left}
+				/** Just for Alignment */
+				
+				/** Styles for Background Color Starts */
+				.section.bg-color div {background-color:#b0c4de;}
+				.section.bg-color h3 {background-color:#6495ed;}
+				.section.bg-color p {background-color:red;}
+				/** Styles for Background Color Ends*/
+				
+				
+				/** Styles for Background Image Starts */
+				.section.bg-image div.div1 {background-image: url('img/teacher.jpg');height:210px}
+				.section.bg-image div.div2 {background: url('img/bankIcon.png') yellow repeat-x;height:36px;}
+				.section.bg-image div.div3 {background: url('img/bankIcon.png') red repeat-y;height:72px;}
+				.section.bg-image div.div4 {background: url('img/bankIcon.png') grey no-repeat right;height:72px;}
+				/** Styles for Background Color Ends */
+				
+				
+				/** Styles for CSS Starts */
+				.section.css-text span.text-color{color:rgb(255,0,0);}
+				.section.css-text p.text-align{text-align:right;}
+				.section.css-text p.text-align .text-capital{text-transform: uppercase;}
+				
+				.section.css-text p.text-dec a.none {text-decoration: none}
+				.section.css-text p.text-dec a.overline {text-decoration: overline;}
+				.section.css-text p.text-dec a.underline{text-decoration: underline;}
+				.section.css-text p.text-dec a.linethrough{text-decoration: line-through;}  
+				
+				.section.css-text .italic{font-style: italic;}
+				.section.css-text .variant{font-variant: small-caps;}
+				.section.css-text .weight{font-weight:700 }
+				.section.css-text p.font{font-family: Goudy Bookletter 1911", sans-serif;font-size: 10px;}
+				
+				/** Styles for CSS Ends */
+				
+				
+				
+		</style>
+	</head>
+	<body>
+		<!-- Example for Background Color Starts -->
+		<div class="section bg-color">
+			<h3>Background Color</h3>
+			<div class="div1">Div with Background Color</div>
+			<p class="p1">Div with Background Color</p>		
+		</div>
+		<!-- Example for Background Color Ends-->
+		
+		<!-- Example for Background Image Starts -->
+		<div class="section bg-image">
+			<h3>Background Image</h3>
+			<div class="div1"></div>
+			<div class="div2"></div>
+			<div class="div3"></div>
+			<div class="div4"></div>					
+		</div>
+		<!-- Example for Background Color Ends -->
+		
+		<!-- Example for CSS Text and Font Starts -->
+		<div class="section css-text">
+			<h3>CSS Text</h3>
+			<p class="text-align">
+				<span class="text-color">Lorem Ipsum Dolor Sit</span><br/>
+				<span class="text-capital">Lorem Ipsum Dolor Sit</span>
+			</p>
+			<p class="text-dec">
+				<h3>Link Decoration</h3>
+				<a class="overline">Lorem Ipsum Dolor Sit</a><br/>
+				<a class="underline">Lorem Ipsum Dolor Sit</a><br/>
+				<a class="linethrough">Lorem Ipsum Dolor Sit</a>
+			</p>	
+			<p class="font">
+				<h3>CSS Font</h3>
+				
+				<span class="italic">Sed ut perspiciatis unde omnis iste natus
+				error sit voluptatem accusantium doloremque laudantium,</span> 
+				
+				<span class="variant">totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+				architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam</span>
+				
+				<span class="weight">voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+				consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</span>
+		</p>					
+		</div>
+		<!-- Example for CSS Text and Font Ends -->
+		
+		
+		
+	</body>
+</html>
+
