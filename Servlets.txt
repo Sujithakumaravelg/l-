@@ -1,0 +1,649 @@
+SERVLETS
+--------
+
+   -->Servlet is a java program used for writing business logic processing
+   -->Two types
+        1) Generic servlet   ->It is protocol independent where it is used for all types of protocol
+
+            Syntax;
+              public abstract class GenericServlet extends Object implements servlet,servletconfig
+              For generic servlets, import javax.servlet.*;
+
+
+    LifeCycle of generic servlet:
+ 
+           1)init()    --> optional method used for initialisation purpose and invoked only first and once in the lifecycle of the program       
+           2)service(ServletRequest req,ServletResponse res) --> mandatory method to write business logic processing 
+           3)destroy() --> optional method used for deallocation of memory  
+
+
+        2)HTTP SERVLET      -> protocol dependent and used only for http protocol
+
+             Syntax:
+               public abstract class HttpServlet extends GenericServlet
+               For http servlet,we import javax.servlet.http.*;
+
+
+     Lifecycle of http servlet:
+
+          1)init()   -->optional method used for initialisation purpose and invoked only first and once in the lifecycle of the program 
+          2)doGet()/doPost()/doPut()/doDelete()/doOption()/doTrace()/service() --> mandatory method to write business logic processing 
+          3)destroy() --> optional method used for deallocation of memory  
+
+
+Most commonly used methods
+         doGet() and doPost()
+
+
+Difference between doGet() and doPost()
+---------------------------------------
+
+          doGet()                                                                                doPost()
+          -------                                                                                --------
+1)A Html program without method attribute or no html                    1) We should have a html program with method="post" then it is post 
+program then by default it is get request, so we write                     request, we write logic inside doPost() method
+logic in doGet()
+
+2)In get request, the parameters are transferred in                     2) In post request, the parameters are transferred directly from one
+the url between ? and &,that is query string                               page to another through headers
+
+3)The get request transfers only 2 GB of data so it is                  3) Post request transfers unlimited data so it is used for storing
+used for fetching purpose                                                  purpose
+
+4)Syntax:                                                               4)Syntax:
+public void doGet(httpservletrequest req,httpservletresponse            public void doPost(httpservletrequest req,httpservletresponse
+res) throws ServletException,IOException                                res) throws ServletException,IOException
+
+
+javax.servlet.http.*;
+
+      ->Interfaces
+
+HttpServletRequest Interface  --> Used to read data from client request
+-----------------------------
+                Syntax: public interface HttpServletRequest extends ServletRequest
+
+                  Methods:
+                     1)String getParameter(String name)  -> Used to take a single value from html program to a servlet program
+                     2)Enumeration getParameterNames()   -> Used only for displaying all the parameters from html to servlet program at a time
+                     3)String[] getParameterValues(String name) -> If a single control takes multiple values, eg:checkbox 
+                     4)String getScheme()                ->returns the name of the protocol Eg:http,ftp,smtp
+                     5)String getProtocol()              ->returns name and version of the protocol
+                     6)String getContextPath()           ->returns the project name
+                     7)String getServletPath()           ->returns the url pattern of the servlet
+                     8)String getPathInfo()              ->returns any path that is located after the servlet path and before the query string
+                     9)String getRequestUri()            ->returns contextpath,servletpath,pathinfo
+                     10)Sring getQueryString()           ->returns string between ? and &
+                     11)String getServerName()           ->returns name of the server
+                     12)int getServerPort()              ->returns port number of the server
+                     13)String getMethod()               ->returns the type of request that is GET or POST
+           
+        2)RequestDispatcher Interface  --> Used to dispatch the request to another resources like html or jsp or another servlet(used to 
+redirect from one page to another page same as html form action)
+
+For creating object of RequestDispatcher
+----------------------------------------
+              RequestDispatcher rd=req.getRequestDispatcher("html/jsp/servlet");
+
+                    Two methods:        
+                      1)rd.forward(req,res) ->Used to forward from one page to another page and does not return back to the calling page. The 
+redirection takes place on the server side so as a client we cant see anything in the url to which page it is redirected. Used to access the 
+resources within the application(project)
+
+                      2)rd.include(req,res) ->Used to include the output of another resources like html,jsp or another servlet and returns back
+to the calling program
+
+                      3)response.sentRedirect("html/jsp/anotherservlet") ->Used only to redirect from one page to another like html or jsp. Unlike
+forward(), the redirection take place on the client side so we can see in the url to which page it was redirected. Access the resources outside
+the application(project) also (Cannot be used to pass value)
+
+
+
+Notes on program
+----------------
+
+Whenever we create servlet program,Servlet program has to be configured inside web.xml (or) using annotation @WebServlet("/SecondServlet")
+       webcontent-->web-inf-->web.xml(deployment descriptor)
+
+To run servlet in webbrowser
+       http://localhost:8080/projectname/FirstServlet(else called as url pattern)
+
+For html program
+
+  webcontent-->rightclick->new-->html
+
+FirstServletProgram
+--------------------
+
+package com.pack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class FirstServlet
+ */
+
+public class FirstServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public FirstServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html");   //to write html tags inside servlet program (compulsory line needed inside doGet())
+		PrintWriter pw=response.getWriter();   //to print anything inside browser using servlet
+		pw.println("<b>Hello World</b>");
+		System.out.println("Hello");
+		pw.close();
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+
+SecondServletProgram:
+---------------------
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class SecondServlet
+ */
+@WebServlet("/SecondServlet")
+public class SecondServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SecondServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html");   //to write html tags inside servlet program (compulsory line needed inside doGet())
+		PrintWriter pw=response.getWriter();   //to print anything inside browser using servlet
+		pw.println("<b>Hello World</b>");
+		System.out.println("Hello");
+		pw.close();
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+
+ThirdServlet
+------------
+
+package com.pack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class ThirdServlet
+ */
+
+public class ThirdServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ThirdServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html");   //to write html tags inside servlet program (compulsory line needed inside doGet())
+		PrintWriter pw=response.getWriter();   //to print anything inside browser using servlet
+		String name=request.getParameter("n1");
+		pw.println(name+"</br>");
+		String s=request.getParameter("n2");
+		int age=Integer.parseInt(s);
+		pw.println(age+"</br>");
+		String gen=request.getParameter("n3");
+		pw.println(gen+"</br>");
+		String hob[]=request.getParameterValues("n4");
+		for(String hobby:hob)
+		{
+			pw.println(hobby+"</br>");
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+web.xml
+-------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>My_project</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>FirstServlet</servlet-name>
+    <servlet-class>com.pack.FirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FirstServlet</servlet-name>
+    <url-pattern>/FirstServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>ThirdServlet</servlet-name>
+    <servlet-class>com.pack.ThirdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ThirdServlet</servlet-name>
+    <url-pattern>/ThirdServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+MyHtmlProgram
+-------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/My_project/ThirdServlet">
+Name:<input type="text" name="n1"></br>
+Age:<input type="text" name="n2"></br>
+Gender:<input type="radio" name="n3" value="male">Male
+       <input type="radio" name="n3" value="female">Female
+       </br>
+Hobbies:<input type="checkbox" name="n4" value="swim">Swimming
+<input type="checkbox" name="n4" value="play">Playing
+<input type="checkbox" name="n4" value="sing">Singing
+<input type="checkbox" name="n4" value="dance">Dancing
+</br>
+<input type="submit" value="Click here">
+
+</form>
+</body>
+</html>
+
+Using doPost() in Servlet:
+--------------------------
+
+package com.pack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class ThirdServlet
+ */
+
+public class ThirdServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ThirdServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html");   //to write html tags inside servlet program (compulsory line needed inside doGet())
+		PrintWriter pw=response.getWriter();   //to print anything inside browser using servlet
+		String name=request.getParameter("n1");
+		pw.println(name+"</br>");
+		String s=request.getParameter("n2");
+		int age=Integer.parseInt(s);
+		pw.println(age+"</br>");
+		String gen=request.getParameter("n3");
+		pw.println(gen+"</br>");
+		String hob[]=request.getParameterValues("n4");
+		for(String hobby:hob)
+		{
+			pw.println(hobby+"</br>");
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html");   //to write html tags inside servlet program (compulsory line needed inside doGet())
+		PrintWriter pw=response.getWriter();
+		pw.println("Inside Post method");//to print anything inside browser using servlet
+		String name=request.getParameter("n1");
+		pw.println(name+"</br>");
+		String s=request.getParameter("n2");
+		int age=Integer.parseInt(s);
+		pw.println(age+"</br>");
+		String gen=request.getParameter("n3");
+		pw.println(gen+"</br>");
+		String hob[]=request.getParameterValues("n4");
+		for(String hobby:hob)
+		{
+			pw.println(hobby+"</br>");
+		}
+	}
+
+}
+
+Html program using method="post":
+---------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/My_project/ThirdServlet" method="post">
+Name:<input type="text" name="n1"></br>
+Age:<input type="text" name="n2"></br>
+Gender:<input type="radio" name="n3" value="male">Male
+       <input type="radio" name="n3" value="female">Female
+       </br>
+Hobbies:<input type="checkbox" name="n4" value="swim">Swimming
+<input type="checkbox" name="n4" value="play">Playing
+<input type="checkbox" name="n4" value="sing">Singing
+<input type="checkbox" name="n4" value="dance">Dancing
+</br>
+<input type="submit" value="Click here">
+
+</form>
+</body>
+</html>
+
+
+
+ATTRIBUTE METHODS
+-----------------
+         
+   -> Used to send the values in the background without end users information
+     Four methods applicable for 3 objects:
+        1)void setAttribute(String name,Object value)
+        2)Object getAttribute(String name)
+        3)Enumeration getAttributeNames()
+        4)void removeAttribute(String name)
+
+    Three objects
+         1)RequestObject  -->If we set an attribute using request object, it can be accessible only to which page the request is transferred
+         2)ContextObject  -->If we set an attribute using context object, it can be accessed throughout the application 
+         3)SessionObject  -->If we set an attribute using session object, it can be accessible only in the page which is participated in the 
+session 
+
+HEADERS
+-------
+
+     --> Whenever a client gives request to a server, certain default information will be transferred between client and server, those default
+information are called headers
+     --> Certain headers take string as a value, int as a value, date as a value
+
+METHODS
+-------
+     1)String getHeader(String headername)       --> returns a single header with string as a value
+     2)int getIntHeader(String headername)       --> returns a single header with int as a value
+     3)long getDateHeader(String headername)     --> returns a single header with date as a value
+     4)Enumeration getHeaderNames()              -->Displays all header at a time
+     5)Enumeration getHeaders(String headername) --> Used when a single header contains multiple values
+
+
+The different headers are 
+    1)accept           --> The file type the browser accepts  Eg: text/html
+    2)accept-language  --> The type of language the browser accepts Eg: en-us
+    3)accept-charset   --> The type of character set the browser accepts Eg: iso-8859-1
+    4)accept-encoding  --> The encoding technique the browser uses like gzip, browser knows how to decode
+    5)host             --> Name and port number of server 
+    6)user-agent       --> The type of browser the client uses
+    7)content-length   --> For post request the length of content
+    8)refresh          --> When the page should be refreshed
+ 
+Eg:
+---
+package com.pack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class SeventhServlet
+ */
+//@WebServlet("/SeventhServlet")
+public class SeventhServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SeventhServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html");   //to write html tags inside servlet program (compulsory line needed inside doGet())
+		PrintWriter pw=response.getWriter();   //to print anything inside browser using servlet
+		pw.println(request.getHeader("accept-language"));
+		pw.println(request.getHeader("accept-encoding"));
+		Enumeration e=request.getHeaderNames();
+		while(e.hasMoreElements())
+		{
+			String s1=(String)e.nextElement();
+			String s2=request.getHeader(s1);
+			pw.println(s1+ " "+s2+ "</br>");
+			
+			
+		}
+		pw.println("</br>");
+		Enumeration e1=request.getHeaders("user-agent");
+		while(e1.hasMoreElements())
+		{
+			pw.println(e1.nextElement()+"</br>");
+			
+		}
+		
+				
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+cookie[] getCookies()   ---> used to retrive the cookie information
+HttpSession getSession()
+HttpSession getSession(boolean on)
+boolean isRequestedSessionIdFromCookie()
+boolean isRequestedSessionIdFromUrl()
+boolean isRequestedSessionIdIsValid()
+
+HTTPSERVLETRESPONSE INTEFACE:
+-----------------------------
+
+ -->Used to write data to the client request
+
+   Syntax:
+      public interface HttpServletResponse extends ServletResponse
+
+   Methods:
+        1)void setContentType(String type)
+        2)PrintWriter getWriter() throws IOException  --> Used to print the output in the form of characters
+        3)ServletOutputStream getOutputStream() throws IOException --> Used to print in the form of bytes
+        4)void addCookie(Cookie c)
+        5)void sendRedirect(String url)  
+        6)void encodeUrl(String url)  --> Used to send session id in the url
+        7)void setHeader(String headername,String value)
+        8)void setIntHeader(String headername,int value)
+        9)void setDateHeader(String headername,long value)
+
+SingleThreadModel INTERFACE (Marker interface)
+---------------------------
+
+   --> By default all servlets are multithreaded, if we want the servlet program to accept only one request at a time we implement single thread
+model interface which is a marker interface means it does not have any methods
+      Eg: public class sample servlet extends httpservlet implements SingleThreadModel{}
+
+
+COOKIE CLASS
+-------------
+
+   -->Cookies are temperory storage of internet files which contains name, path, domain, age and session id of the webpage
+
+CONSTRUCTOR
+-----------
+  1)Cookie()
+  2)Cookie(String name,String value) 
+
+Methods
+-------
+  1)void setDomain(String domain)
+  2)String getDomain()
+  3)void setPath(String path)
+  4)String getPath()  
+  5)void setMaxAge(int age)
+  6)void setName(String name)
+  7)String getName()
+  8)void setValue(String val)
+  9)String getValue()
+  10)void setSecure(boolean on)
+  11)boolean isSecure()
+  12)int getMaxAge()
+
+To create a cookie, 
+   1)Create the object for Cookie class
+   2)Add the cookie at the time of response using addCookie()
+   3)Retrive the cookie using getCookies()
+  
+
+SERVLETCONFIG INTERFACE
+----------------------
+   
+   --> Used to access the initialisation parameters configured in web.xml using init-param tag or by using webinitparam annotation
+   --> Initialisation parameters can be accessed only by a particular servlet
+   ServletConfig sc=getServletConfig();
+
+Methods:
+--------
+      1) String getInitParameters(String name) returns a single initialisation parameter
+      2) Enumeration getInitParametersName()
+
+
+SERVLETCONTEXT INTERFACE
+------------------------
+
+   --> Used to access the application parameters in a servlet and configured only in web.xml using context-param tag 
+   --> Application parameters are parameters that can be accessed throughout the application 
+   
+
+Methods:
+--------
+      1) String getInitParameters(String name) returns a single initialisation parameter
+      2) Enumeration getInitParametersName()
+      3) void setAttribute(String name, Object value) 
+      4) Object getAttribute(String name)
+      5) void removeAttribute(String name)
+      6) Enumeration getAttributeNames()
+    
+
+
+
+
+
+
+
+
+
+
